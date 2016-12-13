@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Miniprojekt", "Miniprojekt\Miniprojekt.csproj", "{40A01CC2-FD32-4211-89CC-FC83DDC08A5C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Miniprojekt.Tests", "Miniprojekt.Tests\Miniprojekt.Tests.csproj", "{08F54884-C362-4CCE-B67B-F9F99BBAD82A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{40A01CC2-FD32-4211-89CC-FC83DDC08A5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40A01CC2-FD32-4211-89CC-FC83DDC08A5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40A01CC2-FD32-4211-89CC-FC83DDC08A5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40A01CC2-FD32-4211-89CC-FC83DDC08A5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08F54884-C362-4CCE-B67B-F9F99BBAD82A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08F54884-C362-4CCE-B67B-F9F99BBAD82A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08F54884-C362-4CCE-B67B-F9F99BBAD82A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08F54884-C362-4CCE-B67B-F9F99BBAD82A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
