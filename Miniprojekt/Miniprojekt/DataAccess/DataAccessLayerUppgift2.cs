@@ -7,9 +7,9 @@ using System.Web;
 
 namespace Miniprojekt.DataAccess
 {
-    public class DataAccessLayer : DbContext
+    public class DataAccessLayerUppgift2 : DbContext
     {
         public DbSet<Uppgift2> uppgift2 { get; set; }
-        public DataAccessLayer(): base("DefaultConnection") {}
+        public DataAccessLayerUppgift2() : base("DefaultConnection") { }
     }
 }

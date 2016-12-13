@@ -8,17 +8,19 @@ using System.Web;
 using System.Web.Mvc;
 using Miniprojekt.DataAccess;
 using Miniprojekt.Models;
+using Miniprojekt.Repositorys;
 
 namespace Miniprojekt.Controllers
 {
     public class Uppgift2Controller : Controller
     {
-        private DataAccessLayer db = new DataAccessLayer();
+        private DataAccessLayerUppgift2 db = new DataAccessLayerUppgift2();
 
+        private Repository _repo = new Repository();
         // GET: Uppgift2
         public ActionResult Index()
         {
-            return View(db.uppgift2.ToList());
+            return View(_repo.GetAllSentences());
         }
 
         // GET: Uppgift2/Details/5

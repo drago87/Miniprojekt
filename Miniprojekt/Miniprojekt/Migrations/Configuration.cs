@@ -5,14 +5,14 @@ namespace Miniprojekt.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<Miniprojekt.DataAccess.DataAccessLayer>
+    internal sealed class Configuration : DbMigrationsConfiguration<Miniprojekt.DataAccess.DataAccessLayerUppgift2>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
         }
 
-        protected override void Seed(Miniprojekt.DataAccess.DataAccessLayer context)
+        protected override void Seed(Miniprojekt.DataAccess.DataAccessLayerUppgift2 context)
         {
             //  This method will be called after migrating to the latest version.
 
