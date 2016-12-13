@@ -53,8 +53,9 @@ namespace Miniprojekt.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.uppgift2.Add(uppgift2);
-                db.SaveChanges();
+                _repo.AddToDB(uppgift2);
+                /*db.uppgift2.Add(uppgift2);
+                db.SaveChanges();*/
                 return RedirectToAction("Index");
             }
 
@@ -85,8 +86,9 @@ namespace Miniprojekt.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(uppgift2).State = EntityState.Modified;
-                db.SaveChanges();
+                _repo.EditInDB(uppgift2);
+                /*db.Entry(uppgift2).State = EntityState.Modified;
+                db.SaveChanges();*/
                 return RedirectToAction("Index");
             }
             return View(uppgift2);
@@ -113,8 +115,9 @@ namespace Miniprojekt.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Uppgift2 uppgift2 = db.uppgift2.Find(id);
-            db.uppgift2.Remove(uppgift2);
-            db.SaveChanges();
+            _repo.RemoveFromDB(uppgift2);
+            /*db.uppgift2.Remove(uppgift2);
+            db.SaveChanges();*/
             return RedirectToAction("Index");
         }
 
