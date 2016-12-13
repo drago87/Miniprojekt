@@ -2,6 +2,7 @@
 using Miniprojekt.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
@@ -32,7 +33,7 @@ namespace Miniprojekt.Repositorys
             return temp;
         }
 
-        public void isright(List<Uppgift2> list)
+        public int isright(List<Uppgift2> list)
         {
             
             var temp = db.uppgift2;
@@ -40,7 +41,32 @@ namespace Miniprojekt.Repositorys
             {
                 temp.Where(b => b.Mening == item.Mening);
             }
-            int antalRatt = temp.Count();
+            return temp.Count();
+        }
+
+        public string GetRandomSentence()
+        {
+            Random rnd = new Random();
+            var temp = db.uppgift2.ToList();
+            return temp[rnd.Next(temp.Count)].Mening;
+        }
+
+        public void EditInDB(Uppgift2 obje)
+        {
+            db.Entry(obje).State = EntityState.Modified;
+            db.SaveChanges();
+        }
+
+        public void AddToDB(Uppgift2 obje)
+        {
+            db.uppgift2.Add(obje);
+            db.SaveChanges();
+        }
+
+        public void RemoveFromDB(Uppgift2 obje)
+        {
+            db.uppgift2.Remove(obje);
+            db.SaveChanges();
         }
     }
 }

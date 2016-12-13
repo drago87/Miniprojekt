@@ -1,0 +1,83 @@
+﻿@model IEnumerable<Miniprojekt.Models.Text2Color.Highscore>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h2>Highscores</h2>
+    </div>
+    <table class="table table-condensed table-striped">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Username)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Points)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Time)
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Username)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Points)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Time)
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+<style>
+    .no-gutter [class*="col-"] {
+        padding: 0 !important;
+    }
+</style>
+<div ng-app="app">
+    <div class="row no-gutter" ng-controller="text2color">
+        <h3 ng-bind="colors[active].Name"></h3>
+        <h4>Rätta svar: {{correctCount}}, Felaktiga: {{wrongCount}}</h4>
+        <div class="col-xs-4" ng-repeat="color in colors">
+            <div class="hover-show" ng-click="$index == active ? correct() : wrong()" style="background-color: {{color.HexValue}}">&nbsp;</div>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/angular.js"></script>
+<script>
+    angular.module('app', []).controller('text2color', function ($scope, $http) {
+
+        function postResult() {
+            $http.post('/Text2Color/NewHighscore', { username: prompt('Ange Användarnamn'), score: $scope.correctCount / $scope.wrongCount });
+        }
+
+        $scope.correctCount = 0;
+        $scope.wrongCount = 0;
+
+        $scope.correct = function () {
+            $scope.colors.splice($scope.active, 1);
+            $scope.correctCount++;
+            $scope.active = Math.floor(Math.random() * $scope.colors.length);
+            if ($scope.colors.length < 1)
+                postResult();
+        }
+
+        $scope.wrong = function () {
+            $scope.wrongCount++;
+        }
+
+        $http.get('/Text2Color/Colors/').then(function (response) {
+            $scope.colors = response.data;
+            $scope.active = Math.floor(Math.random() * response.data.length);
+        });
+    });
+</script>

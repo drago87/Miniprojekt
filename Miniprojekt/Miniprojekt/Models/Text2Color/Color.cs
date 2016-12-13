@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Miniprojekt.Models.Text2Color
 {
     public class Color
     {
+        [Key]
         public string Name { get; protected set; }
+
+        [Required]
         public string HexValue { get; protected set; }
 
         public Color() { }
