@@ -1,5 +1,8 @@
 ﻿using Miniprojekt.DataAccess;
 using Miniprojekt.Models.ImgText;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Miniprojekt.Repository
 {
@@ -9,12 +12,26 @@ namespace Miniprojekt.Repository
 
         public bool CompareTextImg(string text, Image img)
         {
-            if (img.SwedishWord == text)
+            if (img.SwedishWord.ToLower() == text.ToLower())
                 return true;
-            else if (img.EnglishWord == text)
+            else if (img.EnglishWord.ToLower() == text.ToLower())
                 return true;
             else
                 return false;
+        }
+
+        public Image GetRandomImg()
+        {
+            Random rand = new Random();
+            List<Image> tmp = db.Images.ToList();
+            return tmp[rand.Next(tmp.Count())];
+        }
+
+        public Image GetImgById(int? id)
+        {
+            if (id == null)
+                return null;
+            return db.Images.Find(id);
         }
     }
 }

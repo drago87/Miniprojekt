@@ -12,6 +12,7 @@ namespace Miniprojekt.DataAccess
         public ImgTextContext() : base("DefaultConnection")
         { }
 
-        public virtual DbSet<Image> Images { get; set; }
+        public virtual DbSet<Image>         Images          { get; set; }
+        public virtual DbSet<ImgHighscore>  ImgHighscores   { get; set; }
     }
 }

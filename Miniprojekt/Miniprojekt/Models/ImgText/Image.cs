@@ -5,12 +5,15 @@ namespace Miniprojekt.Models.ImgText
     public class Image
     {
         [Key]
-        public int Id { get; protected set; }
-
+        public int Id { get; set; }
+        
+        [Required]
         public string Url { get; set; }
 
+        [Required]
         public string SwedishWord { get; set; }
 
+        [Required]
         public string EnglishWord { get; set; }
 
         public Image() { }

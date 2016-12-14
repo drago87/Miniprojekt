@@ -22,6 +22,36 @@ namespace Miniprojekt.Controllers
             return View(repo.db.Images.ToList());
         }
 
+        public ActionResult QuizImage(int? id)
+        {
+            Image tmp;
+            if(id == null)
+            {
+                tmp = repo.GetRandomImg();
+            }
+            else
+            {
+                tmp = repo.GetImgById(id);
+            }
+            return View(tmp);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult QuizImage(FormCollection collection)
+        {
+            int id = int.Parse(collection["ImageId"]);
+            string answer = collection["Answer"];
+
+            var model = repo.GetImgById(id);
+            if (repo.CompareTextImg(answer, model))
+                return View(model);
+            else
+                RedirectToAction("QuizImage");
+
+            return View();
+        }
+
         // GET: Images/Details/5
         public ActionResult Details(int? id)
         {
