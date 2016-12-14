@@ -5,10 +5,10 @@ namespace Miniprojekt.Models.Text2Color
     public class Color
     {
         [Key]
-        public string Name { get; protected set; }
+        public string Name { get; set; }
 
         [Required]
-        public string HexValue { get; protected set; }
+        public string HexValue { get; set; }
 
         public Color() { }
 
