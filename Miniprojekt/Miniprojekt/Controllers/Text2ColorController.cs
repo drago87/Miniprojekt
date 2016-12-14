@@ -21,8 +21,8 @@ namespace Miniprojekt.Controllers
             return View(db.Highscores.ToList());
         }
 
-        [HttpPost]
-        public ActionResult NewHighscore([Bind(Include = "ID,Username,Points,Time")] Highscore highscore)
+        [HttpPost] //[Bind(Include = "ID,Username,Points")] 
+        public HttpStatusCodeResult NewHighscore(Highscore highscore)
         {
             if (ModelState.IsValid)
             {
@@ -30,10 +30,15 @@ namespace Miniprojekt.Controllers
                 highscore.SetTime(DateTime.Now);
                 db.Highscores.Add(highscore);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return new HttpStatusCodeResult(200, "Values Inserted Correctly");
             }
 
-            return View(highscore);
+            return new HttpStatusCodeResult(400, "Inserted Model was not valid.");
+        }
+
+        public JsonResult Highscores()
+        {
+            return Json(db.Highscores.AsNoTracking().OrderByDescending(p => p.Points), JsonRequestBehavior.AllowGet);
         }
 
         public JsonResult Colors()
