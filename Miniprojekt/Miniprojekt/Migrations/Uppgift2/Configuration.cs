@@ -1,4 +1,4 @@
-namespace Miniprojekt.Migrations
+namespace Miniprojekt.Migrations.Uppgift2
 {
     using System;
     using System.Data.Entity;

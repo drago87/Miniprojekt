@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Miniprojekt.Models.ImgText.Image>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Url)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <img src="../@item.Url" />
+        </td>
+    </tr>
+}
+
+</table>
+<input type="text" name="ImageAnswer" id="ImageAnswer" />
+<button type="submit" name="CheckAnswer" id="CheckAnswer">Svara</button>

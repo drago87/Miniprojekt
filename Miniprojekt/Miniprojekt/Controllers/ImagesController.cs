@@ -7,117 +7,113 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Miniprojekt.DataAccess;
-using Miniprojekt.Models;
-using Miniprojekt.Repositorys;
+using Miniprojekt.Models.ImgText;
+using Miniprojekt.Repository;
 
 namespace Miniprojekt.Controllers
 {
-    public class Uppgift2Controller : Controller
+    public class ImagesController : Controller
     {
-        private DataAccessLayerUppgift2 db = new DataAccessLayerUppgift2();
+        private ImgTextRepository repo = new ImgTextRepository();
 
-        private Repositorys.Repository _repo = new Repositorys.Repository();
-        // GET: Uppgift2
+        // GET: Images
         public ActionResult Index()
         {
-            return View(_repo.GetAllSentences());
+            return View(repo.db.Images.ToList());
         }
 
-        // GET: Uppgift2/Details/5
+        // GET: Images/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Uppgift2 uppgift2 = db.uppgift2.Find(id);
-            if (uppgift2 == null)
+            Image image = repo.db.Images.Find(id);
+            if (image == null)
             {
                 return HttpNotFound();
             }
-            return View(uppgift2);
+            return View(image);
         }
 
-        // GET: Uppgift2/Create
+        // GET: Images/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Uppgift2/Create
+        // POST: Images/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Mening")] Uppgift2 uppgift2)
+        public ActionResult Create([Bind(Include = "Id,Url,Desciption")] Image image)
         {
             if (ModelState.IsValid)
             {
-                _repo.AddToDB(uppgift2);
-                /*db.uppgift2.Add(uppgift2);
-                db.SaveChanges();*/
+                repo.db.Images.Add(image);
+                repo.db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(uppgift2);
+            return View(image);
         }
 
-        // GET: Uppgift2/Edit/5
+        // GET: Images/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Uppgift2 uppgift2 = db.uppgift2.Find(id);
-            if (uppgift2 == null)
+            Image image = repo.db.Images.Find(id);
+            if (image == null)
             {
                 return HttpNotFound();
             }
-            return View(uppgift2);
+            return View(image);
         }
 
-        // POST: Uppgift2/Edit/5
+        // POST: Images/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Mening")] Uppgift2 uppgift2)
+        public ActionResult Edit([Bind(Include = "Id,Url,Desciption")] Image image)
         {
             if (ModelState.IsValid)
             {
-                _repo.EditInDB(uppgift2);
-                /*db.Entry(uppgift2).State = EntityState.Modified;
-                db.SaveChanges();*/
+                repo.db.Entry(image).State = EntityState.Modified;
+                repo.db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(uppgift2);
+            return View(image);
         }
 
-        // GET: Uppgift2/Delete/5
+        // GET: Images/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Uppgift2 uppgift2 = db.uppgift2.Find(id);
-            if (uppgift2 == null)
+            Image image = repo.db.Images.Find(id);
+            if (image == null)
             {
                 return HttpNotFound();
             }
-            return View(uppgift2);
+            return View(image);
         }
 
-        // POST: Uppgift2/Delete/5
+        // POST: Images/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Uppgift2 uppgift2 = db.uppgift2.Find(id);
-            _repo.RemoveFromDB(uppgift2);
-            /*db.uppgift2.Remove(uppgift2);
-            db.SaveChanges();*/
+            Image image = repo.db.Images.Find(id);
+            repo.db.Images.Remove(image);
+            repo.db.SaveChanges();
             return RedirectToAction("Index");
         }
 
@@ -125,7 +121,7 @@ namespace Miniprojekt.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                repo.db.Dispose();
             }
             base.Dispose(disposing);
         }
