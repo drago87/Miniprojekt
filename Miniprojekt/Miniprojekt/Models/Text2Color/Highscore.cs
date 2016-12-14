@@ -8,10 +8,10 @@ namespace Miniprojekt.Models.Text2Color
         [Key]
         public int ID { get; set; }
         [Required]
-        public string Username { get; protected set; }
+        public string Username { get; set; }
         [Required]
-        public int Points { get; protected set; }
-        public DateTime Time { get; protected set; }
+        public int Points { get; set; }
+        public DateTime Time { get; set; } 
 
         public Highscore() { }
 
@@ -19,6 +19,11 @@ namespace Miniprojekt.Models.Text2Color
         {
             this.Username = username;
             this.Points = points;
+            this.Time = time;
+        }
+
+        public void SetTime(DateTime time)
+        {
             this.Time = time;
         }
     }

@@ -37,7 +37,7 @@ namespace Miniprojekt.Migrations.Text2Color
                 new Color("LightYellow", "#FFFFE0"),
                 new Color("Ivory", "#FFFFF0"),
                 new Color("White", "#FFFFFF"),
-                new Color("SlateGray", "##708090"),
+                new Color("SlateGray", "#708090"),
                 new Color("LightSlateGray", "#778899")
             );
         }
