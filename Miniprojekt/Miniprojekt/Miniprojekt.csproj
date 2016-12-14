@@ -48,6 +48,10 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -111,27 +115,41 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\Text2ColorController.cs" />
     <Compile Include="Controllers\Uppgift2Controller.cs" />
-    <Compile Include="DataAccess\DataAccessLayer.cs" />
+    <Compile Include="DataAccess\DataAccessLayerUppgift2.cs" />
+    <Compile Include="DataAccess\Text2ColorContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201612130949103_First.cs" />
-    <Compile Include="Migrations\201612130949103_First.Designer.cs">
-      <DependentUpon>201612130949103_First.cs</DependentUpon>
+    <Compile Include="Migrations\201612131009240_First.cs" />
+    <Compile Include="Migrations\201612131009240_First.Designer.cs">
+      <DependentUpon>201612131009240_First.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Migrations\Text2Color\201612131255356_Text2Color-Updates.cs" />
+    <Compile Include="Migrations\Text2Color\201612131255356_Text2Color-Updates.Designer.cs">
+      <DependentUpon>201612131255356_Text2Color-Updates.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Text2Color\201612140740460_NoMigrationActuallyNeeded.cs" />
+    <Compile Include="Migrations\Text2Color\201612140740460_NoMigrationActuallyNeeded.Designer.cs">
+      <DependentUpon>201612140740460_NoMigrationActuallyNeeded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ImgText\Image.cs" />
+    <Compile Include="Models\Text2Color\Color.cs" />
+    <Compile Include="Models\Text2Color\Highscore.cs" />
     <Compile Include="Models\Uppgift2.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositorys\Repository.cs" />
+    <Compile Include="Migrations\Text2Color\201612131248415_Text2Color-Initial.cs" />
+    <Compile Include="Migrations\Text2Color\201612131248415_Text2Color-Initial.Designer.cs">
+      <DependentUpon>201612131248415_Text2Color-Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Text2Color\Configuration.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\MiniProj.mdf" />
@@ -144,8 +162,12 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\angular-mocks.js" />
+    <Content Include="Scripts\angular.js" />
+    <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\angular.min.js.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -178,6 +200,7 @@
     <Content Include="Views\Uppgift2\Details.cshtml" />
     <Content Include="Views\Uppgift2\Edit.cshtml" />
     <Content Include="Views\Uppgift2\Index.cshtml" />
+    <Content Include="Views\Text2Color\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Repository\" />
@@ -190,8 +213,17 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201612130949103_First.resx">
-      <DependentUpon>201612130949103_First.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201612131009240_First.resx">
+      <DependentUpon>201612131009240_First.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\Text2Color\201612131248415_Text2Color-Initial.resx">
+      <DependentUpon>201612131248415_Text2Color-Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\Text2Color\201612131255356_Text2Color-Updates.resx">
+      <DependentUpon>201612131255356_Text2Color-Updates.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\Text2Color\201612140740460_NoMigrationActuallyNeeded.resx">
+      <DependentUpon>201612140740460_NoMigrationActuallyNeeded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
