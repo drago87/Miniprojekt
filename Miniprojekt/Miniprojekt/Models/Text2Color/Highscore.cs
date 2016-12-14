@@ -21,10 +21,5 @@ namespace Miniprojekt.Models.Text2Color
             this.Points = points;
             this.Time = time;
         }
-
-        public void SetTime(DateTime time)
-        {
-            this.Time = time;
-        }
     }
 }

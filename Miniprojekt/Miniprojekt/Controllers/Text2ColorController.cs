@@ -26,8 +26,7 @@ namespace Miniprojekt.Controllers
         {
             if (ModelState.IsValid)
             {
-                //highscore.Time = DateTime.Now;
-                highscore.SetTime(DateTime.Now);
+                highscore.Time = DateTime.Now;
                 db.Highscores.Add(highscore);
                 db.SaveChanges();
                 return new HttpStatusCodeResult(200, "Values Inserted Correctly");
