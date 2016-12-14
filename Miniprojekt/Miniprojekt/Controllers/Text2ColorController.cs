@@ -21,15 +21,12 @@ namespace Miniprojekt.Controllers
             return View(db.Highscores.ToList());
         }
 
-        // POST: Text2Color/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Username,Points,Time")] Highscore highscore)
+        public ActionResult NewHighscore([Bind(Include = "ID,Username,Points,Time")] Highscore highscore)
         {
             if (ModelState.IsValid)
             {
+                highscore.Time = DateTime.Now;
                 db.Highscores.Add(highscore);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -40,7 +37,7 @@ namespace Miniprojekt.Controllers
 
         public JsonResult Colors()
         {
-            return Json(db.Colors.AsNoTracking(), JsonRequestBehavior.AllowGet);
+            return Json(db.Colors.AsNoTracking().OrderBy(p => Guid.NewGuid()), JsonRequestBehavior.AllowGet);
         }
 
         protected override void Dispose(bool disposing)
