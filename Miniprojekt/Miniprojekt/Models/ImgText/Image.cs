@@ -7,16 +7,19 @@ namespace Miniprojekt.Models.ImgText
         [Key]
         public int Id { get; protected set; }
 
-        public string Url { get; protected set; }
+        public string Url { get; set; }
 
-        public string Desciption { get; protected set; }
+        public string SwedishWord { get; set; }
+
+        public string EnglishWord { get; set; }
 
         public Image() { }
 
-        public Image(string url, string description)
+        public Image(string url, string swe, string eng)
         {
             this.Url = url;
-            this.Desciption = description;
+            this.SwedishWord = swe;
+            this.EnglishWord = eng;
         }
 
         public void SetUrl(string url)
@@ -24,9 +27,14 @@ namespace Miniprojekt.Models.ImgText
             this.Url = url;
         }
 
-        public void SetDescription(string description)
+        public void SetSwedishWord(string swe)
         {
-            this.Desciption = description;
+            this.SwedishWord = swe;
+        }
+
+        public void SetEnlighsWord(string eng)
+        {
+            this.EnglishWord = eng;
         }
     }
 }

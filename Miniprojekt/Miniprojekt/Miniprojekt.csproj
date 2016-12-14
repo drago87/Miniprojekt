@@ -129,6 +129,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\ImgText\201612140834579_ImageUpdate.cs" />
+    <Compile Include="Migrations\ImgText\201612140834579_ImageUpdate.Designer.cs">
+      <DependentUpon>201612140834579_ImageUpdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\ImgText\201612140813216_ImgTextInitial.cs" />
     <Compile Include="Migrations\ImgText\201612140813216_ImgTextInitial.Designer.cs">
       <DependentUpon>201612140813216_ImgTextInitial.cs</DependentUpon>
@@ -168,6 +172,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Resources\Img\car_bil.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -218,6 +223,9 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Migrations\ImgText\201612140834579_ImageUpdate.resx">
+      <DependentUpon>201612140834579_ImageUpdate.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\ImgText\201612140813216_ImgTextInitial.resx">
       <DependentUpon>201612140813216_ImgTextInitial.cs</DependentUpon>
     </EmbeddedResource>

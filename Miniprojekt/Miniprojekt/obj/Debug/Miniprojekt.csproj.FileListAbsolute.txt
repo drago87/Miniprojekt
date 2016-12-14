@@ -92,3 +92,4 @@ C:\Users\elev\Source\Repos\Miniprojekt\Miniprojekt\Miniprojekt\obj\Debug\Minipro
 C:\Users\elev\Source\Repos\Miniprojekt\Miniprojekt\Miniprojekt\obj\Debug\Miniprojekt.pdb
 C:\Users\elev\Source\Repos\Miniprojekt\Miniprojekt\Miniprojekt\bin\Newtonsoft.Json.xml
 C:\Users\elev\Source\Repos\Miniprojekt\Miniprojekt\Miniprojekt\obj\Debug\Miniprojekt.Migrations.ImgTextInitial.resources
+C:\Users\elev\Source\Repos\Miniprojekt\Miniprojekt\Miniprojekt\obj\Debug\Miniprojekt.Migrations.ImageUpdate.resources

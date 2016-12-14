@@ -9,7 +9,9 @@ namespace Miniprojekt.Repository
 
         public bool CompareTextImg(string text, Image img)
         {
-            if (img.Desciption == text)
+            if (img.SwedishWord == text)
+                return true;
+            else if (img.EnglishWord == text)
                 return true;
             else
                 return false;

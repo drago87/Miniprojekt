@@ -26,7 +26,8 @@ namespace Miniprojekt.Controllers
         {
             if (ModelState.IsValid)
             {
-                highscore.Time = DateTime.Now;
+                //highscore.Time = DateTime.Now;
+                highscore.SetTime(DateTime.Now);
                 db.Highscores.Add(highscore);
                 db.SaveChanges();
                 return RedirectToAction("Index");
