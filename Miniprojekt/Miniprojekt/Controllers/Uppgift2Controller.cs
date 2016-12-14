@@ -16,7 +16,7 @@ namespace Miniprojekt.Controllers
     {
         private DataAccessLayerUppgift2 db = new DataAccessLayerUppgift2();
 
-        private Repository _repo = new Repository();
+        private Repositorys.Repository _repo = new Repositorys.Repository();
         // GET: Uppgift2
         public ActionResult Index()
         {

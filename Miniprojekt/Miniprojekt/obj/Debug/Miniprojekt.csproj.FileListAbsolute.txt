@@ -1,7 +1,13 @@
+C:\Users\elev\Dropbox\Programering\Uppgifter\Miniprojekt\Miniprojekt\Miniprojekt\obj\Debug\Miniprojekt.Migrations.First.resources
+C:\Users\elev\Dropbox\Programering\Uppgifter\Miniprojekt\Miniprojekt\Miniprojekt\obj\Debug\Miniprojekt.Migrations.Text2Color.Text2ColorInitial.resources
+C:\Users\elev\Dropbox\Programering\Uppgifter\Miniprojekt\Miniprojekt\Miniprojekt\obj\Debug\Miniprojekt.Migrations.Text2Color.Text2ColorUpdates.resources
+C:\Users\elev\Dropbox\Programering\Uppgifter\Miniprojekt\Miniprojekt\Miniprojekt\obj\Debug\Miniprojekt.csproj.GenerateResource.Cache
 C:\Users\elev\Dropbox\Programering\Uppgifter\Miniprojekt\Miniprojekt\Miniprojekt\bin\Miniprojekt.dll.config
 C:\Users\elev\Dropbox\Programering\Uppgifter\Miniprojekt\Miniprojekt\Miniprojekt\bin\Miniprojekt.dll
 C:\Users\elev\Dropbox\Programering\Uppgifter\Miniprojekt\Miniprojekt\Miniprojekt\bin\Miniprojekt.pdb
 C:\Users\elev\Dropbox\Programering\Uppgifter\Miniprojekt\Miniprojekt\Miniprojekt\bin\Antlr3.Runtime.dll
+C:\Users\elev\Dropbox\Programering\Uppgifter\Miniprojekt\Miniprojekt\Miniprojekt\bin\EntityFramework.dll
+C:\Users\elev\Dropbox\Programering\Uppgifter\Miniprojekt\Miniprojekt\Miniprojekt\bin\EntityFramework.SqlServer.dll
 C:\Users\elev\Dropbox\Programering\Uppgifter\Miniprojekt\Miniprojekt\Miniprojekt\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\elev\Dropbox\Programering\Uppgifter\Miniprojekt\Miniprojekt\Miniprojekt\bin\Newtonsoft.Json.dll
 C:\Users\elev\Dropbox\Programering\Uppgifter\Miniprojekt\Miniprojekt\Miniprojekt\bin\System.Web.Helpers.dll
@@ -12,6 +18,8 @@ C:\Users\elev\Dropbox\Programering\Uppgifter\Miniprojekt\Miniprojekt\Miniprojekt
 C:\Users\elev\Dropbox\Programering\Uppgifter\Miniprojekt\Miniprojekt\Miniprojekt\bin\System.Web.WebPages.dll
 C:\Users\elev\Dropbox\Programering\Uppgifter\Miniprojekt\Miniprojekt\Miniprojekt\bin\System.Web.WebPages.Razor.dll
 C:\Users\elev\Dropbox\Programering\Uppgifter\Miniprojekt\Miniprojekt\Miniprojekt\bin\WebGrease.dll
+C:\Users\elev\Dropbox\Programering\Uppgifter\Miniprojekt\Miniprojekt\Miniprojekt\bin\EntityFramework.xml
+C:\Users\elev\Dropbox\Programering\Uppgifter\Miniprojekt\Miniprojekt\Miniprojekt\bin\EntityFramework.SqlServer.xml
 C:\Users\elev\Dropbox\Programering\Uppgifter\Miniprojekt\Miniprojekt\Miniprojekt\bin\System.Web.Helpers.xml
 C:\Users\elev\Dropbox\Programering\Uppgifter\Miniprojekt\Miniprojekt\Miniprojekt\bin\System.Web.Mvc.xml
 C:\Users\elev\Dropbox\Programering\Uppgifter\Miniprojekt\Miniprojekt\Miniprojekt\bin\System.Web.Optimization.xml
@@ -23,13 +31,7 @@ C:\Users\elev\Dropbox\Programering\Uppgifter\Miniprojekt\Miniprojekt\Miniprojekt
 C:\Users\elev\Dropbox\Programering\Uppgifter\Miniprojekt\Miniprojekt\Miniprojekt\bin\Newtonsoft.Json.xml
 C:\Users\elev\Dropbox\Programering\Uppgifter\Miniprojekt\Miniprojekt\Miniprojekt\obj\Debug\Miniprojekt.dll
 C:\Users\elev\Dropbox\Programering\Uppgifter\Miniprojekt\Miniprojekt\Miniprojekt\obj\Debug\Miniprojekt.pdb
-C:\Users\elev\Dropbox\Programering\Uppgifter\Miniprojekt\Miniprojekt\Miniprojekt\bin\EntityFramework.dll
-C:\Users\elev\Dropbox\Programering\Uppgifter\Miniprojekt\Miniprojekt\Miniprojekt\bin\EntityFramework.SqlServer.dll
-C:\Users\elev\Dropbox\Programering\Uppgifter\Miniprojekt\Miniprojekt\Miniprojekt\bin\EntityFramework.xml
-C:\Users\elev\Dropbox\Programering\Uppgifter\Miniprojekt\Miniprojekt\Miniprojekt\bin\EntityFramework.SqlServer.xml
 C:\Users\elev\Dropbox\Programering\Uppgifter\Miniprojekt\Miniprojekt\Miniprojekt\obj\Debug\Miniprojekt.csprojResolveAssemblyReference.cache
-C:\Users\elev\Dropbox\Programering\Uppgifter\Miniprojekt\Miniprojekt\Miniprojekt\obj\Debug\Miniprojekt.Migrations.First.resources
-C:\Users\elev\Dropbox\Programering\Uppgifter\Miniprojekt\Miniprojekt\Miniprojekt\obj\Debug\Miniprojekt.csproj.GenerateResource.Cache
 C:\Users\Phixle\Source\Repos\Miniprojekt\Miniprojekt\Miniprojekt\obj\Debug\Miniprojekt.csprojResolveAssemblyReference.cache
 C:\Users\Phixle\Source\Repos\Miniprojekt\Miniprojekt\Miniprojekt\obj\Debug\Miniprojekt.Migrations.First.resources
 C:\Users\Phixle\Source\Repos\Miniprojekt\Miniprojekt\Miniprojekt\obj\Debug\Miniprojekt.csproj.GenerateResource.Cache
@@ -71,7 +73,6 @@ C:\Users\elev\Source\Repos\Miniprojekt\Miniprojekt\Miniprojekt\bin\Microsoft.Web
 C:\Users\elev\Source\Repos\Miniprojekt\Miniprojekt\Miniprojekt\bin\Newtonsoft.Json.dll
 C:\Users\elev\Source\Repos\Miniprojekt\Miniprojekt\Miniprojekt\bin\System.Web.Helpers.dll
 C:\Users\elev\Source\Repos\Miniprojekt\Miniprojekt\Miniprojekt\bin\System.Web.Mvc.dll
-C:\Users\elev\Source\Repos\Miniprojekt\Miniprojekt\Miniprojekt\bin\System.Web.Optimization.dll
 C:\Users\elev\Source\Repos\Miniprojekt\Miniprojekt\Miniprojekt\bin\System.Web.Razor.dll
 C:\Users\elev\Source\Repos\Miniprojekt\Miniprojekt\Miniprojekt\bin\System.Web.WebPages.Deployment.dll
 C:\Users\elev\Source\Repos\Miniprojekt\Miniprojekt\Miniprojekt\bin\System.Web.WebPages.dll
