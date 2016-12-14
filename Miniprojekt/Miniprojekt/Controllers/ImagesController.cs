@@ -8,7 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using Miniprojekt.DataAccess;
 using Miniprojekt.Models.ImgText;
-using Miniprojekt.Repository;
+using Miniprojekt.Repositories;
 
 namespace Miniprojekt.Controllers
 {

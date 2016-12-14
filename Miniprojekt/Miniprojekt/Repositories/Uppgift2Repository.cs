@@ -6,7 +6,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
-namespace Miniprojekt.Repositorys
+namespace Miniprojekt.Repositories
 {
     public class Uppgift2Repository
     {

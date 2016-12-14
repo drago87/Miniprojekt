@@ -8,7 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using Miniprojekt.DataAccess;
 using Miniprojekt.Models;
-using Miniprojekt.Repositorys;
+using Miniprojekt.Repositories;
 
 namespace Miniprojekt.Controllers
 {
@@ -17,9 +17,6 @@ namespace Miniprojekt.Controllers
         private DataAccessLayerUppgift2 db = new DataAccessLayerUppgift2();
 
         private Uppgift2Repository _repo = new Uppgift2Repository();
-=======
-        private Repositorys.Repository _repo = new Repositorys.Repository();
->>>>>>> 3983d83f3c674fa574ad8c5a68ce9296774c2612
         // GET: Uppgift2
         public ActionResult Index()
         {
