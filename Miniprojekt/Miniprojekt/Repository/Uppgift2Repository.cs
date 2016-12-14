@@ -8,11 +8,11 @@ using System.Web;
 
 namespace Miniprojekt.Repositorys
 {
-    public class Repository
+    public class Uppgift2Repository
     {
         private DataAccessLayerUppgift2 db;
 
-        public Repository()
+        public Uppgift2Repository()
         {
             db = new DataAccessLayerUppgift2();
         }
@@ -22,14 +22,17 @@ namespace Miniprojekt.Repositorys
             return db.uppgift2.ToList();
         }
 
-        public ICollection<Uppgift2> ReturnAllSentencesWithAsterisk()
+        public ICollection<Uppgift2> ReturnAllSentencesWithAsterisk(List<Uppgift2> old)
         {
-            List<Uppgift2> temp = db.uppgift2.ToList();
-
-            foreach (var item in temp)
+            List<Uppgift2> temp = new List<Uppgift2>();
+            Uppgift2 test = new Uppgift2();
+            foreach (var item in old)
             {
-                item.Mening.Replace('-', '*');
+                string ny = item.Mening.Replace("-", "*").Replace(",", "*").Replace(".", "*").Replace("!", "*").Replace("?", "*");
+                test.Mening = ny;
+                temp.Add(test);
             }
+            
             return temp;
         }
 
@@ -44,11 +47,13 @@ namespace Miniprojekt.Repositorys
             return temp.Count();
         }
 
-        public string GetRandomSentence()
+        public ICollection<Uppgift2> GetRandomSentence()
         {
             Random rnd = new Random();
             var temp = db.uppgift2.ToList();
-            return temp[rnd.Next(temp.Count)].Mening;
+            List<Uppgift2> ret = new List<Uppgift2>();
+            ret.Add(temp[rnd.Next(temp.Count)]);
+            return ReturnAllSentencesWithAsterisk(ret);
         }
 
         public void EditInDB(Uppgift2 obje)

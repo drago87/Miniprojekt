@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Miniprojekt.Models.Uppgift2>
+
+@{
+    ViewBag.Title = "Test";
+}
+
+<h2>Test</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Mening)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Mening)
+        </td>
+        <td>
+            @Html.TextBox("Word "+item.ID.ToString())
+        </td>
+    </tr>
+}
+
+</table>

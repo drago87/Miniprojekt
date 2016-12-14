@@ -16,7 +16,7 @@ namespace Miniprojekt.Controllers
     {
         private DataAccessLayerUppgift2 db = new DataAccessLayerUppgift2();
 
-        private Repository _repo = new Repository();
+        private Uppgift2Repository _repo = new Uppgift2Repository();
         // GET: Uppgift2
         public ActionResult Index()
         {
@@ -128,6 +128,11 @@ namespace Miniprojekt.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public ActionResult Test()
+        {
+            return View(_repo.GetRandomSentence());
         }
     }
 }
