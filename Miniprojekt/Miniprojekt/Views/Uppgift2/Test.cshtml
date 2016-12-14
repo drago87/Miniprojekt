@@ -21,9 +21,16 @@
             @Html.DisplayFor(modelItem => item.Mening)
         </td>
         <td>
+            <!--ToDo Save content of textbox to a list-->
             @Html.TextBox("Word "+item.ID.ToString())
         </td>
     </tr>
 }
-
+    
 </table>
+<div>
+    <!--ToDo Get The List and send to controller-->
+    <button></button>
+    <!--ToDo Need to get the points-->
+    <p>Points: {{points}}</p>
+</div>
