@@ -25,6 +25,7 @@ namespace Miniprojekt.Controllers
         public ActionResult QuizImage(int? id)
         {
             Image tmp;
+            ViewBag.Answer = "";
             if(id == null)
             {
                 tmp = repo.GetRandomImg();
@@ -45,11 +46,15 @@ namespace Miniprojekt.Controllers
 
             var model = repo.GetImgById(id);
             if (repo.CompareTextImg(answer, model))
+            {
+                ViewBag.Answer = "Rätt! / Correct!";
                 return View(model);
+            }
             else
-                RedirectToAction("QuizImage");
-
-            return View();
+            {
+                ViewBag.Answer = "Fel! / Incorrect!";
+                return View(model);
+            }
         }
 
         // GET: Images/Details/5
