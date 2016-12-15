@@ -58,11 +58,6 @@ C:\Users\Phixle\Source\Repos\Miniprojekt\Miniprojekt\Miniprojekt\bin\System.Web.
 C:\Users\Phixle\Source\Repos\Miniprojekt\Miniprojekt\Miniprojekt\bin\System.Web.WebPages.Razor.xml
 C:\Users\Phixle\Source\Repos\Miniprojekt\Miniprojekt\Miniprojekt\obj\Debug\Miniprojekt.dll
 C:\Users\Phixle\Source\Repos\Miniprojekt\Miniprojekt\Miniprojekt\obj\Debug\Miniprojekt.pdb
-C:\Users\elev\Source\Repos\Miniprojekt\Miniprojekt\Miniprojekt\obj\Debug\Miniprojekt.csprojResolveAssemblyReference.cache
-C:\Users\elev\Source\Repos\Miniprojekt\Miniprojekt\Miniprojekt\obj\Debug\Miniprojekt.Migrations.First.resources
-C:\Users\elev\Source\Repos\Miniprojekt\Miniprojekt\Miniprojekt\obj\Debug\Miniprojekt.Migrations.Text2Color.Text2ColorInitial.resources
-C:\Users\elev\Source\Repos\Miniprojekt\Miniprojekt\Miniprojekt\obj\Debug\Miniprojekt.Migrations.Text2Color.Text2ColorUpdates.resources
-C:\Users\elev\Source\Repos\Miniprojekt\Miniprojekt\Miniprojekt\obj\Debug\Miniprojekt.csproj.GenerateResource.Cache
 C:\Users\elev\Source\Repos\Miniprojekt\Miniprojekt\Miniprojekt\bin\Miniprojekt.dll.config
 C:\Users\elev\Source\Repos\Miniprojekt\Miniprojekt\Miniprojekt\bin\Miniprojekt.dll
 C:\Users\elev\Source\Repos\Miniprojekt\Miniprojekt\Miniprojekt\bin\Miniprojekt.pdb
@@ -73,6 +68,7 @@ C:\Users\elev\Source\Repos\Miniprojekt\Miniprojekt\Miniprojekt\bin\Microsoft.Web
 C:\Users\elev\Source\Repos\Miniprojekt\Miniprojekt\Miniprojekt\bin\Newtonsoft.Json.dll
 C:\Users\elev\Source\Repos\Miniprojekt\Miniprojekt\Miniprojekt\bin\System.Web.Helpers.dll
 C:\Users\elev\Source\Repos\Miniprojekt\Miniprojekt\Miniprojekt\bin\System.Web.Mvc.dll
+C:\Users\elev\Source\Repos\Miniprojekt\Miniprojekt\Miniprojekt\bin\System.Web.Optimization.dll
 C:\Users\elev\Source\Repos\Miniprojekt\Miniprojekt\Miniprojekt\bin\System.Web.Razor.dll
 C:\Users\elev\Source\Repos\Miniprojekt\Miniprojekt\Miniprojekt\bin\System.Web.WebPages.Deployment.dll
 C:\Users\elev\Source\Repos\Miniprojekt\Miniprojekt\Miniprojekt\bin\System.Web.WebPages.dll
@@ -88,8 +84,12 @@ C:\Users\elev\Source\Repos\Miniprojekt\Miniprojekt\Miniprojekt\bin\System.Web.We
 C:\Users\elev\Source\Repos\Miniprojekt\Miniprojekt\Miniprojekt\bin\System.Web.WebPages.Deployment.xml
 C:\Users\elev\Source\Repos\Miniprojekt\Miniprojekt\Miniprojekt\bin\System.Web.WebPages.Razor.xml
 C:\Users\elev\Source\Repos\Miniprojekt\Miniprojekt\Miniprojekt\bin\Antlr3.Runtime.pdb
+C:\Users\elev\Source\Repos\Miniprojekt\Miniprojekt\Miniprojekt\bin\Newtonsoft.Json.xml
+C:\Users\elev\Source\Repos\Miniprojekt\Miniprojekt\Miniprojekt\obj\Debug\Miniprojekt.Migrations.Text2Color.Text2ColorInitial.resources
+C:\Users\elev\Source\Repos\Miniprojekt\Miniprojekt\Miniprojekt\obj\Debug\Miniprojekt.Migrations.Text2Color.Text2ColorUpdates.resources
+C:\Users\elev\Source\Repos\Miniprojekt\Miniprojekt\Miniprojekt\obj\Debug\Miniprojekt.Migrations.Text2Color.NoMigrationActuallyNeeded.resources
+C:\Users\elev\Source\Repos\Miniprojekt\Miniprojekt\Miniprojekt\obj\Debug\Miniprojekt.Migrations.First.resources
+C:\Users\elev\Source\Repos\Miniprojekt\Miniprojekt\Miniprojekt\obj\Debug\Miniprojekt.csproj.GenerateResource.Cache
 C:\Users\elev\Source\Repos\Miniprojekt\Miniprojekt\Miniprojekt\obj\Debug\Miniprojekt.dll
 C:\Users\elev\Source\Repos\Miniprojekt\Miniprojekt\Miniprojekt\obj\Debug\Miniprojekt.pdb
-C:\Users\elev\Source\Repos\Miniprojekt\Miniprojekt\Miniprojekt\bin\Newtonsoft.Json.xml
-C:\Users\elev\Source\Repos\Miniprojekt\Miniprojekt\Miniprojekt\obj\Debug\Miniprojekt.Migrations.ImgTextInitial.resources
-C:\Users\elev\Source\Repos\Miniprojekt\Miniprojekt\Miniprojekt\obj\Debug\Miniprojekt.Migrations.ImageUpdate.resources
+C:\Users\elev\Source\Repos\Miniprojekt\Miniprojekt\Miniprojekt\obj\Debug\Miniprojekt.csprojResolveAssemblyReference.cache

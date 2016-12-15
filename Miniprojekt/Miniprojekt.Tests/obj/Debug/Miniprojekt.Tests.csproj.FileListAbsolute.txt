@@ -65,13 +65,13 @@ C:\Users\elev\Source\Repos\Miniprojekt\Miniprojekt\Miniprojekt.Tests\bin\Debug\S
 C:\Users\elev\Source\Repos\Miniprojekt\Miniprojekt\Miniprojekt.Tests\bin\Debug\EntityFramework.dll
 C:\Users\elev\Source\Repos\Miniprojekt\Miniprojekt\Miniprojekt.Tests\bin\Debug\System.Web.Optimization.dll
 C:\Users\elev\Source\Repos\Miniprojekt\Miniprojekt\Miniprojekt.Tests\bin\Debug\Miniprojekt.pdb
-C:\Users\elev\Source\Repos\Miniprojekt\Miniprojekt\Miniprojekt.Tests\bin\Debug\Newtonsoft.Json.xml
 C:\Users\elev\Source\Repos\Miniprojekt\Miniprojekt\Miniprojekt.Tests\bin\Debug\System.Web.Helpers.xml
 C:\Users\elev\Source\Repos\Miniprojekt\Miniprojekt\Miniprojekt.Tests\bin\Debug\System.Web.Mvc.xml
 C:\Users\elev\Source\Repos\Miniprojekt\Miniprojekt\Miniprojekt.Tests\bin\Debug\System.Web.Razor.xml
 C:\Users\elev\Source\Repos\Miniprojekt\Miniprojekt\Miniprojekt.Tests\bin\Debug\System.Web.WebPages.xml
 C:\Users\elev\Source\Repos\Miniprojekt\Miniprojekt\Miniprojekt.Tests\bin\Debug\System.Web.WebPages.Deployment.xml
 C:\Users\elev\Source\Repos\Miniprojekt\Miniprojekt\Miniprojekt.Tests\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\elev\Source\Repos\Miniprojekt\Miniprojekt\Miniprojekt.Tests\bin\Debug\Newtonsoft.Json.xml
 C:\Users\elev\Source\Repos\Miniprojekt\Miniprojekt\Miniprojekt.Tests\bin\Debug\EntityFramework.xml
 C:\Users\elev\Source\Repos\Miniprojekt\Miniprojekt\Miniprojekt.Tests\bin\Debug\System.Web.Optimization.xml
 C:\Users\elev\Source\Repos\Miniprojekt\Miniprojekt\Miniprojekt.Tests\obj\Debug\Miniprojekt.Tests.csprojResolveAssemblyReference.cache
