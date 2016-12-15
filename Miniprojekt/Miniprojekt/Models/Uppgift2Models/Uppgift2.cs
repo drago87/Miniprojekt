@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace Miniprojekt.Models.Uppgift2
+namespace Miniprojekt.Models.Uppgift2Models
 {
     public class Uppgift2
     {

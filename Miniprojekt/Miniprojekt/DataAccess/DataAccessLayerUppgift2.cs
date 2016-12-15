@@ -1,4 +1,4 @@
-﻿using Miniprojekt.Models.Uppgift2;
+﻿using Miniprojekt.Models.Uppgift2Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;

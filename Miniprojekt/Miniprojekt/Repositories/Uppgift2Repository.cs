@@ -1,5 +1,5 @@
 ﻿using Miniprojekt.DataAccess;
-using Miniprojekt.Models.Uppgift2;
+using Miniprojekt.Models.Uppgift2Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -31,13 +31,14 @@ namespace Miniprojekt.Repositories
                 test = new Uppgift2();
                 string ny = item.Mening.Replace("-", "*").Replace(",", "*").Replace(".", "*").Replace("!", "*").Replace("?", "*");
                 test.Mening = ny;
+                test.Orginal_ID = item.ID;
                 temp.Add(test);
             }
             
             return temp;
         }
 
-        public int isright(List<Uppgift2> list)
+        public int CalculatePoints(List<Uppgift2> list)
         {
             
             var temp = db.uppgift2;
