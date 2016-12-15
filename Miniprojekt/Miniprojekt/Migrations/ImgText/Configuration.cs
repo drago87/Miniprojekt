@@ -1,16 +1,14 @@
-﻿namespace Miniprojekt.Migrations
+﻿namespace Miniprojekt.Migrations.ImgText
 {
     using Miniprojekt.Models.ImgText;
-    using System;
-    using System.Data.Entity;
     using System.Data.Entity.Migrations;
-    using System.Linq;
 
-    internal sealed class ImgTextConfiguration : DbMigrationsConfiguration<Miniprojekt.DataAccess.ImgTextContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<Miniprojekt.DataAccess.ImgTextContext>
     {
-        public ImgTextConfiguration()
+        public Configuration()
         {
             AutomaticMigrationsEnabled = true;
+            MigrationsDirectory = @"Migrations\ImgText";
         }
 
         protected override void Seed(Miniprojekt.DataAccess.ImgTextContext context)
