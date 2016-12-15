@@ -58,23 +58,6 @@
             <li ng-repeat="color in colors | orderBy: 'Name'" ng-bind="color.Name" class="list-group-item col-xs-6"></li>
             <li ng-repeat="color in removedColors" ng-bind="color.Name" class="list-group-item col-xs-6" style="background-color: lightblue"></li>
         </ul>
-        <!--
-            <div class="row">
-                <div class="col-xs-6">
-                    <h4>Färger kvar:</h4>
-                    <ul ng-repeat="color in colors">
-                        <li ng-bind="color.Name"></li>
-                    </ul>
-                </div>
-                <div class="col-xs-6">
-                    <h4>Färger avklarade:</h4>
-                    <ul ng-repeat="color in removedColors">
-                        <li ng-bind="color.Name"></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-                -->
     </div>
     <script src="~/Scripts/angular.js"></script>
     <script>
