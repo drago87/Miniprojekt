@@ -32,31 +32,34 @@
         </div>
         <style>
             .colors > div {
-                border: .125em solid black;
-                border-top: none;
-                border-left: none;
+                box-shadow: inset 0 0 .125em gray;
                 padding: 0 !important;
+                position: relative; 
+                transition: box-shadow ease .1s;
             }
-            .colors > div:nth-child(3n + 1) {
-                border-left: .125em solid black;
+            .colors > div::after {
+                content: "";
+                display: block;
+                padding-top: 100%;
             }
-            .colors > div:nth-child(-n + 3) {
-                border-top: .125em solid black;
+            .colors > div:hover {
+                box-shadow: inset 0 0 .5em gray;
+            }
+            .colors > div:active {
+                box-shadow: inset 0 0 .7em black;
             }
         </style>
         <div class="row text-center">
             <h3 ng-bind="colors[active].Name"></h3>
             <h4>Rätta svar: {{correctCount}}, Felaktiga: {{wrongCount}}</h4>
             <div class="colors">
-                <div class="col-xs-4" ng-repeat="color in colors">
-                    <div ng-click="$index == active ? correct() : wrong()" style="height: 10vw; background-color: {{color.HexValue}}">&nbsp;</div>
-                </div>
+                <div ng-repeat="color in colors" class="col-xs-3 col-sm-2 col-lg-1" ng-click="$index == active ? correct() : wrong()" style="background-color: {{color.HexValue}}"></div>
             </div>
         </div>
         <h4 class="text-center">Färger:</h4>
         <ul class="list-group row">
-            <li ng-repeat="color in colors | orderBy: 'Name'" ng-bind="color.Name" class="list-group-item col-xs-6"></li>
-            <li ng-repeat="color in removedColors" ng-bind="color.Name" class="list-group-item col-xs-6" style="background-color: lightblue"></li>
+            <li ng-repeat="color in colors | orderBy: 'Name'" ng-bind="color.Name" class="list-group-item col-xs-6 col-md-4"></li>
+            <li ng-repeat="color in removedColors" ng-bind="color.Name" class="list-group-item col-xs-6 col-md-4" style="background-color: lightblue"></li>
         </ul>
     </div>
     <script src="~/Scripts/angular.js"></script>
