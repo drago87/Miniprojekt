@@ -37,7 +37,7 @@ namespace Miniprojekt.Controllers
 
         public JsonResult Highscores()
         {
-            return Json(db.Highscores.AsNoTracking().OrderByDescending(p => p.Points), JsonRequestBehavior.AllowGet);
+            return Json(db.Highscores.AsNoTracking().OrderByDescending(p => p.Points).ThenBy(p => p.Time).Take(5), JsonRequestBehavior.AllowGet);
         }
 
         public JsonResult Colors()

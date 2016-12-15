@@ -31,65 +31,104 @@
             </table>
         </div>
         <style>
-            .no-gutter [class*="col-"] {
+            .colors > div {
+                box-shadow: inset 0 0 .125em gray;
                 padding: 0 !important;
+                position: relative; 
+                transition: box-shadow ease .1s;
+            }
+            .colors > div::after {
+                content: "";
+                display: block;
+                padding-top: 100%;
+            }
+            .colors > div:hover {
+                box-shadow: inset 0 0 .5em gray;
+            }
+            .colors > div:active {
+                box-shadow: inset 0 0 .7em black;
             }
         </style>
-        <div class="row no-gutter">
+        <div class="row text-center">
             <h3 ng-bind="colors[active].Name"></h3>
             <h4>Rätta svar: {{correctCount}}, Felaktiga: {{wrongCount}}</h4>
-            <div class="col-xs-4" ng-repeat="color in colors">
-                <div class="hover-show" ng-click="$index == active ? correct() : wrong()" style="background-color: {{color.HexValue}}">&nbsp;</div>
+            <div class="colors">
+                <div ng-repeat="color in colors" class="col-xs-3 col-sm-2 col-lg-1" ng-click="$index == active ? correct() : wrong()" style="background-color: {{color.HexValue}}"></div>
             </div>
         </div>
+        <h4 class="text-center">Färger:</h4>
+        <ul class="list-group row">
+            <li ng-repeat="color in colors | orderBy: 'Name'" ng-bind="color.Name" class="list-group-item col-xs-6 col-md-4"></li>
+            <li ng-repeat="color in removedColors" ng-bind="color.Name" class="list-group-item col-xs-6 col-md-4" style="background-color: lightblue"></li>
+        </ul>
     </div>
-</div>
-<script src="~/Scripts/angular.js"></script>
-<script>
-    angular.module('app', []).controller('text2color', function ($scope, $http) {
+    <script src="~/Scripts/angular.js"></script>
+    <script>
+        angular.module('app', []).controller('text2color', function ($scope, $http) {
 
-        function postResult() {
-            var data = {
-                Username: prompt("Ange Användarnamn:"),
-                Points: $scope.correctCount * 100 / ($scope.wrongCount + 1)
-            };
-            console.log("Posing Values...")
-            console.log(data);
-            $http.post('/Text2Color/NewHighscore/', data);
-        }
+            $scope.colors = [];
+            $scope.removedColors = [];
+            $scope.highscores = [];
 
-        function correct() {
-            $scope.colors.splice($scope.active, 1);
-            $scope.correctCount++;
-            $scope.active = Math.floor(Math.random() * $scope.colors.length);
-            if ($scope.colors.length < 1)
-                postResult();
-        }
+            getColors();
+            getHighscores();
 
-        function wrong() {
-            $scope.wrongCount++;
-        }
+            $scope.correctCount = 0;
+            $scope.wrongCount = 0;
 
-        $scope.correctCount = 0;
-        $scope.wrongCount = 0;
+            function postResult() {
+                var data = {
+                    Username: prompt("Ange Användarnamn:"),
+                    Points: $scope.correctCount * 100 / ($scope.wrongCount + 1)
+                };
+                console.log("Posing Values...")
+                console.log(data);
+                $http
+                    .post('/Text2Color/NewHighscore/', data)
+                    .then(function successCallback(response) {
+                        console.log(response);
+                        getHighscores();
+                    }, function errorCallback(response) {
+                        console.log(response);
+                    });
+            }
 
-        $scope.correct = correct;
-        $scope.wrong = wrong;
+            function correct() {
+                $scope.removedColors.push($scope.colors.splice($scope.active, 1)[0]);
+                $scope.correctCount++;
+                $scope.active = Math.floor(Math.random() * $scope.colors.length);
+                if ($scope.colors.length < 1) {
+                    postResult();
+                    getHighscores();
+                }
+            }
 
-        $http.get('/Text2Color/Highscores/')
-            .then(function (response) {
-                console.log("Success getting Highscores");
-                console.log(response.data);
-                $scope.highscores = response.data;
-            });
+            function wrong() {
+                $scope.wrongCount++;
+            }
 
-        $http.get('/Text2Color/Colors/')
-            .then(function (response) {
-                console.log("Success getting Colors");
-                console.log(response.data);
-                $scope.colors = response.data;
-                $scope.active = Math.floor(Math.random() * response.data.length);
-            });
+            function getHighscores() {
+                $http.get('/Text2Color/Highscores/')
+                    .then(function (response) {
+                        console.log("Success getting Highscores");
+                        console.log(response.data);
+                        $scope.highscores = response.data;
+                    }
+                )
+            }
 
-    });
-</script>
+            function getColors() {
+                $http.get('/Text2Color/Colors/')
+                    .then(function (response) {
+                        console.log("Success getting Colors");
+                        console.log(response.data);
+                        $scope.colors = response.data;
+                        $scope.active = Math.floor(Math.random() * response.data.length);
+                    }
+                )
+            }
+
+            $scope.correct = correct;
+            $scope.wrong = wrong;
+        });
+    </script>

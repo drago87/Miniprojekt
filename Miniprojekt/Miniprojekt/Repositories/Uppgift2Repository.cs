@@ -1,5 +1,5 @@
 ﻿using Miniprojekt.DataAccess;
-using Miniprojekt.Models;
+using Miniprojekt.Models.Uppgift2Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -25,26 +25,33 @@ namespace Miniprojekt.Repositories
         public ICollection<Uppgift2> ReturnAllSentencesWithAsterisk(List<Uppgift2> old)
         {
             List<Uppgift2> temp = new List<Uppgift2>();
-            Uppgift2 test = new Uppgift2();
+            Uppgift2 test;
             foreach (var item in old)
             {
+                test = new Uppgift2();
                 string ny = item.Mening.Replace("-", "*").Replace(",", "*").Replace(".", "*").Replace("!", "*").Replace("?", "*");
                 test.Mening = ny;
+                test.Orginal_ID = item.ID;
                 temp.Add(test);
             }
             
             return temp;
         }
 
-        public int isright(List<Uppgift2> list)
+        public int CalculatePoints(List<Uppgift2> list)
         {
             
             var temp = db.uppgift2;
+            int Points = 0;
             foreach (var item in list)
             {
-                temp.Where(b => b.Mening == item.Mening);
+                var temp2 = temp.Where(b => b.Mening == item.Mening && b.ID == item.Orginal_ID);
+                if (temp2.Count() >0)
+                {
+                    Points += 1;
+                }
             }
-            return temp.Count();
+            return Points;
         }
 
         public ICollection<Uppgift2> GetRandomSentence()
@@ -52,7 +59,52 @@ namespace Miniprojekt.Repositories
             Random rnd = new Random();
             var temp = db.uppgift2.ToList();
             List<Uppgift2> ret = new List<Uppgift2>();
-            ret.Add(temp[rnd.Next(temp.Count)]);
+            
+            int i = 0;
+            int antal;
+            if (temp.Count <= 10)
+            {
+                antal = temp.Count - 1;
+            }
+            else
+            {
+                antal = 10;
+            }
+            while (i <= antal)
+            {
+                int check = i;
+                while (check == i)
+                {
+                    var temp1 = rnd.Next(temp.Count);
+                    try
+                    {
+                        bool answer = false;
+                        foreach (var item in ret)
+                        {
+                            if (item.Mening == temp[temp1].Mening)
+                            {
+                                answer = true;
+                            }
+                        }
+                        if (answer == true)
+                        {
+                            
+                        }
+                        else
+                        {
+                            ret.Add(temp[temp1]);
+                            i += 1;
+                        }
+                        
+                    }
+                    catch
+                    {
+
+                    }
+                }
+                
+            }
+            
             return ReturnAllSentencesWithAsterisk(ret);
         }
 
