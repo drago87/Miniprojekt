@@ -1,5 +1,5 @@
 ﻿using Miniprojekt.DataAccess;
-using Miniprojekt.Models;
+using Miniprojekt.Models.Uppgift2;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -41,11 +41,16 @@ namespace Miniprojekt.Repositories
         {
             
             var temp = db.uppgift2;
+            int Points = 0;
             foreach (var item in list)
             {
-                temp.Where(b => b.Mening == item.Mening);
+                var temp2 = temp.Where(b => b.Mening == item.Mening && b.ID == item.Orginal_ID);
+                if (temp2.Count() >0)
+                {
+                    Points += 1;
+                }
             }
-            return temp.Count();
+            return Points;
         }
 
         public ICollection<Uppgift2> GetRandomSentence()
