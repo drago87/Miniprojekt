@@ -14,5 +14,10 @@ namespace Miniprojekt.DataAccess
 
         public virtual DbSet<Image>         Images          { get; set; }
         public virtual DbSet<ImgHighscore>  ImgHighscores   { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.HasDefaultSchema("ImgText");
+        } 
     }
 }

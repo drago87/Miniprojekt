@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace Miniprojekt.Models
+namespace Miniprojekt.Models.Uppgift2Models
 {
     public class Uppgift2
     {
@@ -12,6 +12,7 @@ namespace Miniprojekt.Models
         public int ID { get; set; }
         [Required]
         public string Mening { get; set; }
-
+        
+        public Nullable<int> Orginal_ID { get; set; }
     }
 }

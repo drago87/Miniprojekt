@@ -1,4 +1,4 @@
-﻿using Miniprojekt.Models;
+﻿using Miniprojekt.Models.Uppgift2Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -11,5 +11,11 @@ namespace Miniprojekt.DataAccess
     {
         public DbSet<Uppgift2> uppgift2 { get; set; }
         public DataAccessLayerUppgift2() : base("DefaultConnection") { }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.HasDefaultSchema("Uppgift2");
+        } 
     }
+    
 }

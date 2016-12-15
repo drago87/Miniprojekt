@@ -10,10 +10,13 @@ namespace Miniprojekt.Migrations.Uppgift2
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
+            MigrationsDirectory = @"Migrations\Uppgift2";
         }
 
         protected override void Seed(Miniprojekt.DataAccess.DataAccessLayerUppgift2 context)
         {
+            // Update-Database -ConfigurationTypeName Miniprojekt.Migrations.Uppgift2.Configuration
+
             //  This method will be called after migrating to the latest version.
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 

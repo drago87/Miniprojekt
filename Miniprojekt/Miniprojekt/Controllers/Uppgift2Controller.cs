@@ -7,7 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Miniprojekt.DataAccess;
-using Miniprojekt.Models;
+using Miniprojekt.Models.Uppgift2Models;
 using Miniprojekt.Repositories;
 
 namespace Miniprojekt.Controllers
