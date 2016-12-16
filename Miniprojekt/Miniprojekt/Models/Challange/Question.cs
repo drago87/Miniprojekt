@@ -14,13 +14,9 @@ namespace Miniprojekt.Models.Challange
         [Required]
         public string theQuestion { get; set; }
 
-        [ForeignKey("answers")]
-        [Required]
-        public string Answer { get; set; }
-        [Required]
         public string Category { get; set; }
 
-        public virtual List<Answers> answers { get; set; }
+        public List<Answer> option { get; set; }
         
     }
 }

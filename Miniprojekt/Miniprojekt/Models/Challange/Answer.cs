@@ -6,13 +6,15 @@ using System.Web;
 
 namespace Miniprojekt.Models.Challange
 {
-    public class Answers
+    public class Answer
     {
         [Key]
         public int ID { get; set; }
+
         [Required]
-        public string Answer { get; set; }
+        public string AnswerString { get; set; }
+
         [Required]
-        public bool isRight { get; set; }
+        public bool TrueFalse { get; set; }
     }
 }
