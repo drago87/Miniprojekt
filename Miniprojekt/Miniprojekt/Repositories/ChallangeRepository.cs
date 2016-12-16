@@ -24,7 +24,7 @@ namespace Miniprojekt.Repositories
             //return db.Questions.ToList();
         }*/
 
-        public ICollection<Question> Get5QuestionsFromCategory(string category)
+        public List<int> Get5QuestionIDFromCategory(string category)
         {
             Random rnd = new Random();
             var temp = db.Questions.Where(b=>b.Category == category).ToList();
@@ -62,7 +62,7 @@ namespace Miniprojekt.Repositories
                         }
                         else
                         {
-                            ret.Add(temp[temp1]);
+                            ret.Add(temp[temp1].ID);
                             i += 1;
                         }
                         
@@ -78,11 +78,11 @@ namespace Miniprojekt.Repositories
             return ret;
         }
 
-        public ICollection<Question> Get15QuestionsFromAllCategorys()
+        public List<int> Get15QuestionIDFromAllCategorys()
         {
             Random rnd = new Random();
             var temp = db.Questions.ToList();
-            List<Question> ret = new List<Question>();
+            List<int> ret = new List<Question>();
             
             int i = 0;
             int antal;
@@ -116,7 +116,7 @@ namespace Miniprojekt.Repositories
                         }
                         else
                         {
-                            ret.Add(temp[temp1]);
+                            ret.Add(temp[temp1].ID);
                             i += 1;
                         }
                         
@@ -130,6 +130,24 @@ namespace Miniprojekt.Repositories
             }
 
             return ret;
+        }
+
+        public void EditInDB(Question obje)
+        {
+            db.Entry(obje).State = EntityState.Modified;
+            db.SaveChanges();
+        }
+
+        public void AddToDB(Question obje) 
+        {
+            db.Questions.Add(obje);
+            db.SaveChanges();
+        }
+
+        public void RemoveFromDB(Question obje)
+        {
+            db.Questions.Remove(obje);
+            db.SaveChanges();
         }
 
     }
