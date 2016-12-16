@@ -52,7 +52,7 @@
         </style>
         <div class="row text-center">
             <h4>Rätta svar: {{correctCount}}, Felaktiga: {{wrongCount}}</h4>
-            <div class="image" style="background-image: url('../Resources/Img/{{images[active].Url}}')"></div>
+            <div class="image" ng-style="{'background-image' : 'Url(\'' + images[active].Url + '\')' }"></div>
             <div class="rightside">
                 <input type="text" class="input" name="Input" id="Input" />
                 <input type="button" class="input" name="Check" id="Check" value="Rätta" ng-click="check(active)" />
