@@ -24,6 +24,7 @@ namespace Miniprojekt.Controllers
             return View(_repo.GetAllSentences());
         }
 
+
         // GET: Uppgift2/Details/5
         public ActionResult Details(int? id)
         {
