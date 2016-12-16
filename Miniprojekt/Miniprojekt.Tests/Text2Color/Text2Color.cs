@@ -3,7 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Miniprojekt.Tests.Text2Color
 {
-    using Models.Text2Color;
+    using Miniprojekt.Models.Text2Color;
 
     [TestClass]
     public class Text2Color

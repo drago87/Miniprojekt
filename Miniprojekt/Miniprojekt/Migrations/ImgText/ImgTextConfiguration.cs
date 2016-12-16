@@ -16,8 +16,8 @@
             //Update-Database -ConfigurationTypeName Miniprojekt.Migrations.ImgText.Configuration
             context.Images.AddOrUpdate(
                 i => i.Id,
-                new Image { Id = 1, Url = "car_bil.jpg", SwedishWord = "Bil", EnglishWord = "Car" },
-                new Image { Id = 2, Url = "bicycle_cykel.jpg", SwedishWord = "Cykel", EnglishWord = "Bicycle" }
+                new Image { Id = 1, Url = "/Resources/Img/car_bil.jpg", SwedishWord = "Bil", EnglishWord = "Car" },
+                new Image { Id = 2, Url = "/Resources/Img/bicycle_cykel.jpg", SwedishWord = "Cykel", EnglishWord = "Bicycle" }
             );
         }
     }
