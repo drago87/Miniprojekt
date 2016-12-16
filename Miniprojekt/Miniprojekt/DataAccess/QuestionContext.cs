@@ -13,7 +13,7 @@ namespace Miniprojekt.DataAccess
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.HasDefaultSchema("SentenceBuilder");
+            modelBuilder.HasDefaultSchema("Question");
         }
     }
 }
