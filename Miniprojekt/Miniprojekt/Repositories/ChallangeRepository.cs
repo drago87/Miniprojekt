@@ -10,127 +10,24 @@ namespace Miniprojekt.Repositories
 {
     public class ChallangeRepository
     {
-        private QuestionContext db;
+        private QuestionContext db = new QuestionContext();
 
-
-        public ChallangeRepository()
+        public ICollection<Question> GetAllQuestions()
         {
-            db = new QuestionContext();
+            return db.Questions.ToList();
         }
 
-        /*public ICollection<Question> GetAllQuestions
+        public List<Question> GetRandomQuestions()
         {
-            
-            //return db.Questions.ToList();
-        }*/
-
-        public List<int> Get5QuestionIDFromCategory(string category)
-        {
-            Random rnd = new Random();
-            var temp = db.Questions.Where(b=>b.Category == category).ToList();
-            List<Question> ret = new List<Question>();
-            
-            int i = 0;
-            int antal;
-            if (temp.Count <= 4)
-            {
-                antal = temp.Count - 1;
-            }
-            else
-            {
-                antal = 4;
-            }
-            while (i <= antal)
-            {
-                int check = i;
-                while (check == i)
-                {
-                    var temp1 = rnd.Next(temp.Count);
-                    try
-                    {
-                        bool answer = false;
-                        foreach (var item in ret)
-                        {
-                            if (item.theQuestion == temp[temp1].theQuestion)
-                            {
-                                answer = true;
-                            }
-                        }
-                        if (answer == true)
-                        {
-                            
-                        }
-                        else
-                        {
-                            ret.Add(temp[temp1].ID);
-                            i += 1;
-                        }
-                        
-                    }
-                    catch
-                    {
-
-                    }
-                }
-                
-            }
-
-            return ret;
+            return db.Questions.OrderBy(q => Guid.NewGuid()).Take(15).ToList();
         }
 
-        public List<int> Get15QuestionIDFromAllCategorys()
+
+        public List<Question> GetRandomQuestionsFromCategory(string category)
         {
-            Random rnd = new Random();
-            var temp = db.Questions.ToList();
-            List<int> ret = new List<Question>();
-            
-            int i = 0;
-            int antal;
-            if (temp.Count <= 14)
-            {
-                antal = temp.Count - 1;
-            }
-            else
-            {
-                antal = 14;
-            }
-            while (i <= antal)
-            {
-                int check = i;
-                while (check == i)
-                {
-                    var temp1 = rnd.Next(temp.Count);
-                    try
-                    {
-                        bool answer = false;
-                        foreach (var item in ret)
-                        {
-                            if (item.theQuestion == temp[temp1].theQuestion)
-                            {
-                                answer = true;
-                            }
-                        }
-                        if (answer == true)
-                        {
-                            
-                        }
-                        else
-                        {
-                            ret.Add(temp[temp1].ID);
-                            i += 1;
-                        }
-                        
-                    }
-                    catch
-                    {
-
-                    }
-                }
-                
-            }
-
-            return ret;
+            return db.Questions.Where(b => b.Category == category).OrderBy(q => Guid.NewGuid()).Take(5).ToList();
         }
+
 
         public void EditInDB(Question obje)
         {
