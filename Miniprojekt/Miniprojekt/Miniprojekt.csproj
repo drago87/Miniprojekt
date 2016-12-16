@@ -122,15 +122,26 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImagesController.cs" />
+    <Compile Include="Controllers\SentencesController.cs" />
     <Compile Include="Controllers\Text2ColorController.cs" />
     <Compile Include="Controllers\Uppgift2Controller.cs" />
     <Compile Include="DataAccess\DataAccessLayerUppgift2.cs" />
     <Compile Include="DataAccess\ImgTextContext.cs" />
+    <Compile Include="DataAccess\SBContext.cs" />
     <Compile Include="DataAccess\Text2ColorContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\ImgText\ImgTextConfiguration.cs" />
+    <Compile Include="Migrations\ImgText\201612151333017_Break it all.cs" />
+    <Compile Include="Migrations\ImgText\201612151333017_Break it all.Designer.cs">
+      <DependentUpon>201612151333017_Break it all.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\ImgText\Configuration.cs" />
+    <Compile Include="Migrations\SentenceBuilding\201612151400561_Initzial.cs" />
+    <Compile Include="Migrations\SentenceBuilding\201612151400561_Initzial.Designer.cs">
+      <DependentUpon>201612151400561_Initzial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\SentenceBuilding\Configuration.cs" />
     <Compile Include="Migrations\Text2Color\201612131248415_Text2Color-Initial.cs" />
     <Compile Include="Migrations\Text2Color\201612131248415_Text2Color-Initial.Designer.cs">
       <DependentUpon>201612131248415_Text2Color-Initial.cs</DependentUpon>
@@ -148,16 +159,22 @@
     <Compile Include="Migrations\Uppgift2\201612131009240_First.Designer.cs">
       <DependentUpon>201612131009240_First.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\Uppgift2\201612150803523_Second.cs" />
+    <Compile Include="Migrations\Uppgift2\201612150803523_Second.Designer.cs">
+      <DependentUpon>201612150803523_Second.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Uppgift2\Configuration.cs" />
     <Compile Include="Models\ImgText\Image.cs" />
     <Compile Include="Models\ImgText\ImgHighscore.cs" />
     <Compile Include="Models\SentenceBuilding\Exam.cs" />
     <Compile Include="Models\SentenceBuilding\ExamResult.cs" />
+    <Compile Include="Models\SentenceBuilding\Sentence.cs" />
     <Compile Include="Models\Text2Color\Color.cs" />
     <Compile Include="Models\Text2Color\Highscore.cs" />
-    <Compile Include="Models\Uppgift2.cs" />
+    <Compile Include="Models\Uppgift2Models\Uppgift2.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\ImgTextRepository.cs" />
+    <Compile Include="Repositories\SentenceBuilderRepository.cs" />
     <Compile Include="Repositories\Uppgift2Repository.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -171,6 +188,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Resources\Img\bicycle_cykel.jpg" />
     <Content Include="Resources\Img\car_bil.jpg" />
     <Content Include="Scripts\angular-mocks.js" />
     <Content Include="Scripts\angular.js" />
@@ -217,6 +235,14 @@
     <Content Include="Views\Images\Index.cshtml" />
     <Content Include="Views\Text2Color\Index.cshtml" />
     <Content Include="Views\Uppgift2\Test.cshtml" />
+    <Content Include="Views\Images\QuizImage.cshtml" />
+    <Content Include="Views\Sentences\Create.cshtml" />
+    <Content Include="Views\Sentences\Delete.cshtml" />
+    <Content Include="Views\Sentences\Details.cshtml" />
+    <Content Include="Views\Sentences\Edit.cshtml" />
+    <Content Include="Views\Sentences\Index.cshtml" />
+    <Content Include="Views\Sentences\Random.cshtml" />
+    <Content Include="Views\Sentences\Result.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -227,6 +253,12 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Migrations\ImgText\201612151333017_Break it all.resx">
+      <DependentUpon>201612151333017_Break it all.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\SentenceBuilding\201612151400561_Initzial.resx">
+      <DependentUpon>201612151400561_Initzial.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\Text2Color\201612131248415_Text2Color-Initial.resx">
       <DependentUpon>201612131248415_Text2Color-Initial.cs</DependentUpon>
     </EmbeddedResource>
@@ -238,6 +270,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\Uppgift2\201612131009240_First.resx">
       <DependentUpon>201612131009240_First.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\Uppgift2\201612150803523_Second.resx">
+      <DependentUpon>201612150803523_Second.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

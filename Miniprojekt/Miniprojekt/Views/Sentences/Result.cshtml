@@ -1,0 +1,44 @@
+﻿@model Miniprojekt.Models.SentenceBuilding.ExamResult
+@{
+    ViewBag.Title = "Result";
+}
+
+<h2>Result</h2>
+
+<h2>Details</h2>
+
+<div>
+    <h4>Image</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Points)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Points)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ForgottenWords)
+        </dt>
+
+        <dd>
+            @foreach (var item in Model.ForgottenWords)
+            {<span>@item </span>}
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MisspelledAndExcessWords)
+        </dt>
+
+        <dd>
+            @foreach (var item in Model.MisspelledAndExcessWords)
+            {<span>@item </span>}
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>
