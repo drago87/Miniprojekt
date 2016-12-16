@@ -4,26 +4,141 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<div ng-app="ImgApp">
+    <div ng-controller="ImgText">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h2>Highscores</h2>
+            </div>
+            <table class="table table-condensed table-striped">
+                <tr>
+                    <th>
+                        Användarnamn
+                    </th>
+                    <th>
+                        Poäng
+                    </th>
+                    <th>
+                        Datum
+                    </th>
+                </tr>
+                <tr ng-repeat="highscore in highscores">
+                    <td ng-bind="highscore.Username"></td>
+                    <td ng-bind="highscore.Score"></td>
+                    <td ng-bind="highscore.Time.slice(6, -2) | date : medium"></td>
+                </tr>
+            </table>
+        </div>
+        <style>
+            .image {
+                padding-bottom: 30%;
+                background-repeat: no-repeat;
+                background-size: contain;
+                float: left;
+                width: 70%;
+            }
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Url)
-        </th>
-    </tr>
+            .input {
+                float: right;
+                margin-top: 5%;
+                width: 25%;
+                
+            }
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            <img src="../@item.Url" />
-        </td>
-    </tr>
-}
+            .rightside {
+                margin-top: 10%;
+                margin-right: 5%;
+            }
+        </style>
+        <div class="row text-center">
+            <h4>Rätta svar: {{correctCount}}, Felaktiga: {{wrongCount}}</h4>
+            <div class="image" style="background-image: url('../Resources/Img/{{images[active].Url}}')"></div>
+            <div class="rightside">
+                <input type="text" class="input" name="Input" id="Input" />
+                <input type="button" class="input" name="Check" id="Check" value="Rätta" ng-click="check(active)" />
+            </div>
+        </div>
+    </div>
+</div>
+    <script src="~/Scripts/angular.js"></script>
+    <script>
+        angular.module('ImgApp', []).controller('ImgText', function ($scope, $http) {
 
-</table>
-<input type="text" name="ImageAnswer" id="ImageAnswer" />
-<button type="submit" name="CheckAnswer" id="CheckAnswer">Svara</button>
+            $scope.images = [];
+            $scope.removedImages = [];
+            $scope.highscores = [];
+
+            getImages();
+            getHighscores();
+
+            $scope.correctCount = 0;
+            $scope.wrongCount = 0;
+
+            function postResult() {
+                var data = {
+                    Username: prompt("Ange Användarnamn:"),
+                    Score: $scope.correctCount * 100 / ($scope.wrongCount + 1)
+                };
+                console.log("Posting Values...")
+                console.log(data);
+                $http
+                    .post('/Images/NewHighscore/', data)
+                    .then(function successCallback(response) {
+                        console.log(response);
+                        getHighscores();
+                    }, function errorCallback(response) {
+                        console.log(response);
+                    });
+            }
+
+            $scope.check = function (active) {
+                var input = document.getElementById("Input").value.toLowerCase();
+                if ($scope.images[active].SwedishWord.toLowerCase() == input || $scope.images[active].EnglishWord.toLowerCase() == input)
+                {
+                    correct();
+                }
+                else
+                {
+                    wrong();
+                }
+            }
+
+            function correct() {
+                $scope.removedImages.push($scope.images.splice($scope.active, 1)[0]);
+                $scope.correctCount++;
+                $scope.active = Math.floor(Math.random() * $scope.images.length);
+                if ($scope.images.length < 1) {
+                    postResult();
+                    getHighscores();
+                }
+            }
+
+            function wrong() {
+                $scope.wrongCount++;
+            }
+
+            function getHighscores() {
+                $http.get('/Images/Highscores/')
+                    .then(function (response) {
+                        console.log("Success getting Highscores");
+                        console.log(response.data);
+                        $scope.highscores = response.data;
+                    }
+                )
+            }
+
+            function getImages() {
+                $http.get('/Images/Images/')
+                    .then(function (response) {
+                        console.log("Success getting Images");
+                        console.log(response.data);
+                        $scope.images = response.data;
+                        $scope.active = Math.floor(Math.random() * response.data.length);
+                    }
+                )
+            }
+
+            $scope.correct = correct;
+            $scope.wrong = wrong;
+        });
+    </script>

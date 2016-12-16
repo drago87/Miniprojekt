@@ -6,7 +6,8 @@
 
 <h2>Test</h2>
 
-
+@using (Html.BeginForm())
+{
 <table class="table">
     <tr>
         <th>
@@ -22,15 +23,18 @@
         </td>
         <td>
             <!--ToDo Save content of textbox to a list-->
-            @Html.TextBox("Word "+item.ID.ToString())
+            @Html.TextBox("Word"+item.ID.ToString())
+            @Html.Hidden("ItemID" + item.ID.ToString(), null, new { @Value = item.Orginal_ID })
         </td>
+        
     </tr>
 }
     
 </table>
 <div>
     <!--ToDo Get The List and send to controller-->
-    <button>Calculate Points</button>
+    <input type="submit" value="Rätta" class="btn btn-default" />
     <!--ToDo Need to get the points-->
-    <p>Points: ShowPoints</p>
+    <p>Points: @ViewBag.Points</p>
 </div>
+}

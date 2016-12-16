@@ -12,21 +12,25 @@ namespace Miniprojekt.Models.ImgText
         public int Id { get; set; }
 
         [Required]
-        public string Username { get; protected set; }
+        public string Username { get; set; }
 
         [Required]
-        public int Score { get; protected set; }
-
-        [Required]
-        public DateTime Date { get; protected set; }
+        public int Score { get; set; }
+        
+        public DateTime Time { get; set; }
 
         public ImgHighscore() { }
 
-        public ImgHighscore(string username, int score, DateTime date)
+        public ImgHighscore(string username, int score, DateTime time)
         {
             this.Username   = username;
             this.Score      = score;
-            this.Date       = date;
+            this.Time       = time;
+        }
+
+        public void SetTime(DateTime time)
+        {
+            this.Time = time;
         }
     }
 }

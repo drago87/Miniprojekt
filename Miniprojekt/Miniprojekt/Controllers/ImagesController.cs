@@ -16,6 +16,30 @@ namespace Miniprojekt.Controllers
     {
         private ImgTextRepository repo = new ImgTextRepository();
 
+        [HttpPost] //[Bind(Include = "ID,Username,Points")] 
+        public HttpStatusCodeResult NewHighscore(ImgHighscore highscore)
+        {
+            if (ModelState.IsValid)
+            {
+                highscore.SetTime(DateTime.Now);
+                repo.db.ImgHighscores.Add(highscore);
+                repo.db.SaveChanges();
+                return new HttpStatusCodeResult(200, "Values Inserted Correctly");
+            }
+
+            return new HttpStatusCodeResult(400, "Inserted Model was not valid.");
+        }
+
+        public JsonResult Highscores()
+        {
+            return Json(repo.db.ImgHighscores.AsNoTracking().OrderByDescending(p => p.Score).ThenBy(p => p.Time).Take(5), JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult Images()
+        {
+            return Json(repo.db.Images.AsNoTracking().OrderBy(p => Guid.NewGuid()), JsonRequestBehavior.AllowGet);
+        }
+
         // GET: Images
         public ActionResult Index()
         {
