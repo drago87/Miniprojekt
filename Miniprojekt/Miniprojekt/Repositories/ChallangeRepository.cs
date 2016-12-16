@@ -18,11 +18,11 @@ namespace Miniprojekt.Repositories
             db = new QuestionContext();
         }
 
-        public ICollection<Question> GetAllQuestions
+        /*public ICollection<Question> GetAllQuestions
         {
             
-            return db.Questions.ToList();
-        }
+            //return db.Questions.ToList();
+        }*/
 
         public ICollection<Question> Get5QuestionsFromCategory(string category)
         {
