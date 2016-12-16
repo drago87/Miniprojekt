@@ -132,8 +132,31 @@ namespace Miniprojekt.Controllers
             base.Dispose(disposing);
         }
 
+        
         public ActionResult Test()
         {
+            return View(_repo.GetRandomSentence());
+        }
+
+        [HttpPost]
+        public ActionResult Test(string Word0 = null, string Word1 = null, string Word2 = null, string Word3 = null, string Word4 = null, string Word5 = null, string Word6 = null, string Word7 = null, string Word8 = null, string Word9 = null,
+                                 int ItemID0 = -1, int ItemID1 = -1, int ItemID2 = -1, int ItemID3 = -1, int ItemID4 = -1, int ItemID5 = -1, int ItemID6 = -1, int ItemID7 = -1, int ItemID8 = -1, int ItemID9 = -1)
+        {
+            List<Uppgift2> temp = new List<Uppgift2>();
+            string[] temp2a = new string[10]{ Word0, Word1, Word2, Word3, Word4, Word5, Word6, Word7, Word8, Word9};
+            int[] temp2b = new int[10] { ItemID0, ItemID1, ItemID2, ItemID3, ItemID4, ItemID5, ItemID6, ItemID7, ItemID8, ItemID9 };
+            for (int i = 0; i < 10; i++)
+            {
+                if (temp2a[i] != null && temp2a[i] != "" && temp2b[i] != -1)
+	            {
+		            Uppgift2 temp3 = new Uppgift2();
+                    temp3.Mening = temp2a[i];
+                    temp3.Orginal_ID = temp2b[i];
+                    temp.Add(temp3);
+	            }
+                
+            }
+            ViewBag.Points = _repo.CalculatePoints(temp);
             return View(_repo.GetRandomSentence());
         }
     }

@@ -1,0 +1,31 @@
+﻿@model Miniprojekt.Models.SentenceBuilding.Sentence
+
+@{
+    ViewBag.Title = "Random";
+}
+
+<h2>Random</h2>
+
+<div>
+    <h4>Sentence</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.mySentence)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mySentence)
+        </dd>
+
+    </dl>
+    <form method="post">
+        @Html.HiddenFor(model => model.mySentence)
+        Test: @Html.TextArea("test", Request["test"], new { rows = "6", cols = "300"  })<br />
+        <input type="submit" value="Submit" class="btn-primary" />
+    </form>
+
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>
