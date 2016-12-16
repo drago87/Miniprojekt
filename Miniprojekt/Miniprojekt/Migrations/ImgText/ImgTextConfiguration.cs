@@ -3,9 +3,9 @@
     using Miniprojekt.Models.ImgText;
     using System.Data.Entity.Migrations;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<Miniprojekt.DataAccess.ImgTextContext>
+    internal sealed class ImgTextConfiguration : DbMigrationsConfiguration<Miniprojekt.DataAccess.ImgTextContext>
     {
-        public Configuration()
+        public ImgTextConfiguration()
         {
             AutomaticMigrationsEnabled = true;
             MigrationsDirectory = @"Migrations\ImgText";
