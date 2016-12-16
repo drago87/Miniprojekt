@@ -13,6 +13,7 @@
 
         protected override void Seed(Miniprojekt.DataAccess.ImgTextContext context)
         {
+            //Update-Database -ConfigurationTypeName Miniprojekt.Migrations.ImgText.Configuration
             context.Images.AddOrUpdate(
                 i => i.Id,
                 new Image { Id = 1, Url = "car_bil.jpg", SwedishWord = "Bil", EnglishWord = "Car" },
