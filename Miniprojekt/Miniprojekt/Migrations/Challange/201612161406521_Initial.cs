@@ -3,7 +3,7 @@ namespace Miniprojekt.Migrations.Challange
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Initzial : DbMigration
+    public partial class Initial : DbMigration
     {
         public override void Up()
         {
@@ -12,7 +12,7 @@ namespace Miniprojekt.Migrations.Challange
                 c => new
                     {
                         ID = c.Int(nullable: false, identity: true),
-                        theQuestion = c.String(),
+                        theQuestion = c.String(nullable: false),
                         Category = c.String(),
                     })
                 .PrimaryKey(t => t.ID);
@@ -22,8 +22,8 @@ namespace Miniprojekt.Migrations.Challange
                 c => new
                     {
                         ID = c.Int(nullable: false, identity: true),
-                        answer = c.String(nullable: false),
-                        trueFlase = c.Boolean(nullable: false),
+                        AnswerString = c.String(nullable: false),
+                        TrueFalse = c.Boolean(nullable: false),
                         Question_ID = c.Int(),
                     })
                 .PrimaryKey(t => t.ID)

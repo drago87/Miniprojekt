@@ -95,4 +95,5 @@ C:\Users\elev\Source\Repos\Miniprojekt\Miniprojekt\Miniprojekt\obj\Debug\Minipro
 C:\Users\elev\Source\Repos\Miniprojekt\Miniprojekt\Miniprojekt\obj\Debug\Miniprojekt.Migrations.SentenceBuilding.Initzial.resources
 C:\Users\elev\Source\Repos\Miniprojekt\Miniprojekt\Miniprojekt\obj\Debug\Miniprojekt.Migrations.Uppgift2.Second.resources
 C:\Users\elev\Source\Repos\Miniprojekt\Miniprojekt\Miniprojekt\obj\Debug\Miniprojekt.Migrations.ImgText.first.resources
-C:\Users\elev\Source\Repos\Miniprojekt\Miniprojekt\Miniprojekt\obj\Debug\Miniprojekt.Migrations.Challange.Initzial.resources
+C:\Users\elev\Source\Repos\Miniprojekt\Miniprojekt\Miniprojekt\obj\Debug\Miniprojekt.csprojResolveAssemblyReference.cache
+C:\Users\elev\Source\Repos\Miniprojekt\Miniprojekt\Miniprojekt\obj\Debug\Miniprojekt.Migrations.Challange.Initial.resources
