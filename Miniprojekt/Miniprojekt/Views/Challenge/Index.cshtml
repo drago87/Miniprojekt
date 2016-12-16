@@ -1,0 +1,50 @@
+﻿@{
+    ViewBag.Title = "Utmaningen";
+}
+
+<h2>Utmaningen</h2>
+
+<div ng-app="app">
+    <div ng-controller="challange" ng-init="getHighscores()">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h2>Highscores</h2>
+            </div>
+            <table class="table table-condensed table-striped" ng-cloak="highscores">
+                <tr>
+                    <th>
+                        Användarnamn
+                    </th>
+                    <th>
+                        Poäng
+                    </th>
+                    <th>
+                        Datum
+                    </th>
+                </tr>
+                <tr ng-repeat="highscore in highscores">
+                    <td ng-bind="highscore.Username"></td>
+                    <td ng-bind="highscore.Points"></td>
+                    <td ng-bind="highscore.Time.slice(6, -2) | date : medium"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/angular.js"></script>
+<script>
+    angular.module('app', []).controller('text2color', function ($scope, $http) {
+
+        function getHighscores() {
+            $http.get('/Challange/Highscores/')
+                .then(function (response) {
+                    console.log("Success getting Highscores");
+                    console.log(response.data);
+                    $scope.highscores = response.data;
+                }
+            )
+        }
+
+        $scope.getHighscores = getHighscores;
+    });
+</script>
