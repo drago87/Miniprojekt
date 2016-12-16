@@ -37,25 +37,7 @@ namespace Miniprojekt.Repositories
 
         public ExamResult Examine(string StudentAnswers, string rightAnswers)
         {
-
             return Exam.Evaluate(StudentAnswers.Split(' ').Where(x => x != "").ToList(), rightAnswers.Split(' ').Where(x => x != "").ToList());
-
-            //return Exam.Evaluate(((Func<List<string>>)(() =>{
-            //    List<string> student = new List<string>();
-            //    foreach (string word in StudentAnswers.Split(' '))
-            //    {
-            //        student.Add(word);
-            //    }
-            //    return student;
-            //}))(), ((Func<List<string>>)(() =>
-            //{
-            //    List<string> right = new List<string>();
-            //    foreach (string word in rightAnswers.Split(' '))
-            //    {
-            //        right.Add(word);
-            //    }
-            //    return right;
-            //}))());
         }
 
     }
