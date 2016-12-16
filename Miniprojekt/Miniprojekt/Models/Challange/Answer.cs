@@ -1,22 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
 namespace Miniprojekt.Models.Challange
 {
-    public class Question
+    public class Answer
     {
         [Key]
         public int ID { get; set; }
 
-        public string theQuestion { get; set; }
+        [Required]
+        public string answer { get; set; }
 
-        public string Category { get; set; }
-
-        public List<Answer> option { get; set; }
-
+        [Required]
+        public bool trueFlase { get; set; }
     }
 }
