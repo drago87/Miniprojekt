@@ -12,9 +12,9 @@ namespace Miniprojekt.Models.Challange
         public int ID { get; set; }
 
         [Required]
-        public string answer { get; set; }
+        public string AnswerString { get; set; }
 
         [Required]
-        public bool trueFalse { get; set; }
+        public bool TrueFalse { get; set; }
     }
 }
