@@ -132,5 +132,23 @@ namespace Miniprojekt.Repositories
             return ret;
         }
 
+        public void EditInDB(Question obje)
+        {
+            db.Entry(obje).State = EntityState.Modified;
+            db.SaveChanges();
+        }
+
+        public void AddToDB(Question obje) 
+        {
+            db.Questions.Add(obje);
+            db.SaveChanges();
+        }
+
+        public void RemoveFromDB(Question obje)
+        {
+            db.Questions.Remove(obje);
+            db.SaveChanges();
+        }
+
     }
 }
