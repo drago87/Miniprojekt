@@ -26,13 +26,16 @@ namespace Miniprojekt.Repositories
         {
             List<Uppgift2> temp = new List<Uppgift2>();
             Uppgift2 test;
+            int i = 0;
             foreach (var item in old)
             {
                 test = new Uppgift2();
                 string ny = item.Mening.Replace("-", "*").Replace(",", "*").Replace(".", "*").Replace("!", "*").Replace("?", "*");
+                test.ID = i;
                 test.Mening = ny;
                 test.Orginal_ID = item.ID;
                 temp.Add(test);
+                i += 1;
             }
             
             return temp;
@@ -41,7 +44,7 @@ namespace Miniprojekt.Repositories
         public int CalculatePoints(List<Uppgift2> list)
         {
             
-            var temp = db.uppgift2;
+            var temp = db.uppgift2.ToList();
             int Points = 0;
             foreach (var item in list)
             {
@@ -62,13 +65,13 @@ namespace Miniprojekt.Repositories
             
             int i = 0;
             int antal;
-            if (temp.Count <= 10)
+            if (temp.Count <= 9)
             {
                 antal = temp.Count - 1;
             }
             else
             {
-                antal = 10;
+                antal = 9;
             }
             while (i <= antal)
             {
