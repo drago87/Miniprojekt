@@ -19,6 +19,7 @@ namespace Miniprojekt.Repositories
 
         public ICollection<Uppgift2> GetAllSentences()
         {
+            
             return db.uppgift2.ToList();
         }
 
