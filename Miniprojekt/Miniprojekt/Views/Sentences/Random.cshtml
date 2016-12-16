@@ -20,9 +20,11 @@
 
     </dl>
     <form method="post">
-        @Html.HiddenFor(model => model.mySentence)
-        Test: @Html.TextArea("test", Request["test"], new { rows = "6", cols = "300"  })<br />
-        <input type="submit" value="Submit" class="btn-primary" />
+        <div class="form-group">
+            @Html.HiddenFor(model => model.mySentence)
+            @Html.TextArea("test", Request["test"], new { @placeholder = "Skriv din mening här...", @class = "form-control" })<br />
+            <input type="submit" value="Submit" class="btn btn-primary" />
+        </div>
     </form>
 
 </div>
