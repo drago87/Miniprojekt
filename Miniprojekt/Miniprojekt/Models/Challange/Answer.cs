@@ -15,6 +15,6 @@ namespace Miniprojekt.Models.Challange
         public string answer { get; set; }
 
         [Required]
-        public bool trueFlase { get; set; }
+        public bool trueFalse { get; set; }
     }
 }
