@@ -1,16 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
 using System.Linq;
-using System.Net;
-using System.Web;
 using System.Web.Mvc;
-using Miniprojekt.DataAccess;
-using Miniprojekt.Models.Text2Color;
 
 namespace Miniprojekt.Controllers
 {
+    using DataAccess;
+    using Models.Text2Color;
+
     public class Text2ColorController : Controller
     {
         private Text2ColorContext db = new Text2ColorContext();
@@ -18,7 +14,7 @@ namespace Miniprojekt.Controllers
         // GET: Text2Color
         public ActionResult Index()
         {
-            return View(db.Highscores.ToList());
+            return View();
         }
 
         [HttpPost] //[Bind(Include = "ID,Username,Points")] 
@@ -37,12 +33,16 @@ namespace Miniprojekt.Controllers
 
         public JsonResult Highscores()
         {
-            return Json(db.Highscores.AsNoTracking().OrderByDescending(p => p.Points).ThenBy(p => p.Time).Take(5), JsonRequestBehavior.AllowGet);
+            return Json(db.Highscores.AsNoTracking()
+                .OrderByDescending(p => p.Points)
+                .ThenBy(p => p.Time)
+                    .Take(5), JsonRequestBehavior.AllowGet);
         }
 
         public JsonResult Colors()
         {
-            return Json(db.Colors.AsNoTracking().OrderBy(p => Guid.NewGuid()), JsonRequestBehavior.AllowGet);
+            return Json(db.Colors.AsNoTracking()
+                .OrderBy(p => Guid.NewGuid()), JsonRequestBehavior.AllowGet);
         }
 
         protected override void Dispose(bool disposing)

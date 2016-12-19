@@ -1,39 +1,50 @@
-﻿@model IEnumerable<Miniprojekt.Models.Challange.Question>
-
-@{
-    ViewBag.Title = "Index";
+﻿@{
+    ViewBag.Title = "Utmaningen";
 }
 
-<h2>Index</h2>
+<h2>Utmaningen</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.theQuestion)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Category)
-        </th>
-        <th></th>
-    </tr>
+<div ng-app="app">
+    <div ng-controller="challange" ng-init="getQuestionsAndOptions()">
+        <div class="panel panel-default" ng-repeat="question in questions">
+            <div class="panel-heading">Fråga #{{$index + 1}}</div>
+            <div class="panel-body">
+                <p ng-bind="question.theQuestion"></p>
+                <label ng-repeat="opt in question.option" class="checkbox-inline">
+                    <input type="checkbox" ng-model="" class="list-group-item">
+                    {{opt.AnswerString}}
+                </label>
+                <!-- TODO: Bind Models and Submit to Server -->
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/angular.js"></script>
+<script>
+    "use strict";
+    angular.module('app', []).controller('challange', function ($scope, $http) {
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.theQuestion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Category)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
+        function getQuestionsAndOptions(category) {
 
-</table>
+            $http({
+                url: '/Questions/RandomQuestions/',
+                method: "GET",
+                params: { category: category }
+            }).
+
+            then(
+                function (response) {
+                    console.log("Success getting Highscores");
+                    console.log(response.data);
+                    $scope.questions = response.data;
+                },
+                function (response) {
+                    console.log("Error getting Highscores");
+                    console.log(response.data);
+                }
+            );
+        }
+
+        $scope.getQuestionsAndOptions = getQuestionsAndOptions;
+    });
+</script>

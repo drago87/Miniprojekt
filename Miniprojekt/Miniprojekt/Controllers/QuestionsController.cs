@@ -21,6 +21,14 @@ namespace Miniprojekt.Controllers
             return View(db.Questions.ToList());
         }
 
+        public JsonResult RandomQuestions(string category)
+        {
+            return Json(db.Questions.AsNoTracking()
+                .Include(q => q.option)
+                .OrderByDescending(p => Guid.NewGuid())
+                    .Take(5), JsonRequestBehavior.AllowGet);
+        }
+
         // GET: Questions/Details/5
         public ActionResult Details(int? id)
         {
