@@ -60,7 +60,7 @@ namespace Miniprojekt.Repositories
 
         public ICollection<Uppgift2> GetRandomSentence()
         {
-            Random rnd = new Random();
+            /*Random rnd = new Random();
             var temp = db.uppgift2.ToList();
             List<Uppgift2> ret = new List<Uppgift2>();
             
@@ -101,14 +101,13 @@ namespace Miniprojekt.Repositories
                         }
                         
                     }
-                    catch
-                    {
-
-                    }
+                    catch{}
                 }
                 
             }
-            
+            */
+            var ret = db.uppgift2.OrderBy(q => Guid.NewGuid()).Take(10).ToList();
+
             return ReturnAllSentencesWithAsterisk(ret);
         }
 
